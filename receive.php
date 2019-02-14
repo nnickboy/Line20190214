@@ -14,10 +14,10 @@
         //"to" => "Ud91c4d2039ede38a258409f1d06164e5",//$sender_userid,
         "replyToken" => $sender_replyToken,
         "messages" => array (
-            array (
-                "type" => "text",
-                "text" => "Hello. You say". $sender_txt
-            ),
+            //array (
+            //    "type" => "text",
+            //    "text" => "Hello. You say". $sender_txt
+            //),
             array (
                 "type" => "template",
                 "altText" => "this is a buttons template",
