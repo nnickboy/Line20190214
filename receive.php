@@ -58,7 +58,6 @@ $msg_json = '{
                 "type": "bubble",
                 "hero": {
                   "type": "image",
-                  //"url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
                   "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9HTfJiHWjVp8D8V0Z9lvl38KxtzF7qpjCMpMBl-G_ZezJhpf6",
 		  "size": "full",
                   "aspectRatio": "20:13",
