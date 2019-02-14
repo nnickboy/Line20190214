@@ -10,6 +10,7 @@
     $sender_txt = $json_obj->events[0]->message->text; //取得訊息內容
     $sender_replyToken = $json_obj->events[0]->replyToken; //取得訊息的replyToken
  
+	/*quick replies
 	$response = array (
 		"replyToken" => $sender_replyToken,
 		"messages" => array (
@@ -28,36 +29,36 @@
 							)
 						),
 						array (
-                            "type" => "action",
-                            "imageUrl" => "https://sporzfy.com/chtuser1/placeholder.png",
-                            "action" => array (
-                                "type" => "location",
-                                "label"=> "請選擇位置"
-                            )
-                        ),
-                        array (
-                            "type" => "action",
-                            "imageUrl" => "https://sporzfy.com/chtuser1/camera.png",
-                            "action" => array (
-                                "type" => "camera",
-                                "label"=> "啟動相機"
-                            )
-                        ),
-                        array (
-                            "type" => "action",
-                            "imageUrl" => "https://sporzfy.com/chtuser1/picture.png",
-                            "action" => array (
-                                "type" => "cameraRoll",
-                                "label"=> "啟動相簿"
-                            )
+			    "type" => "action",
+			    "imageUrl" => "https://sporzfy.com/chtuser1/placeholder.png",
+			    "action" => array (
+				"type" => "location",
+				"label"=> "請選擇位置"
+			    )
+			),
+			array (
+			    "type" => "action",
+			    "imageUrl" => "https://sporzfy.com/chtuser1/camera.png",
+			    "action" => array (
+				"type" => "camera",
+				"label"=> "啟動相機"
+			    )
+			),
+			array (
+			    "type" => "action",
+			    "imageUrl" => "https://sporzfy.com/chtuser1/picture.png",
+			    "action" => array (
+				"type" => "cameraRoll",
+				"label"=> "啟動相簿"
+			    )
 						)
 					)
 				)	
 			)
 		)
-	);
+	);*/
 
-    /*$response = array (
+       $response = array (
         //"to" => "Ud91c4d2039ede38a258409f1d06164e5",//$sender_userid,
         "replyToken" => $sender_replyToken,
         "messages" => array (
@@ -84,7 +85,7 @@
                                                   array (
                                                     "type" => "message",
                                                     "label" => "買綠茶",
-                                                    "text" => "This is text"
+                                                    "text" => "line://app/1646547872-OL5gppqx"
                                                   ),
                                                   array (
                                                     "type" => "datetimepicker",
@@ -99,8 +100,9 @@
                                   )
                 )
         )
-    );*/
-/*
+    );
+
+/* flex
 $msg_json = '{
                 "type": "bubble",
                 "hero": {
