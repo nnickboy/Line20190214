@@ -10,7 +10,7 @@
     $sender_txt = $json_obj->events[0]->message->text; //取得訊息內容
   
     $response = array (
-        "to" => $sender_userid,
+        "to" => "Ud91c4d2039ede38a258409f1d06164e5",//$sender_userid,
         "messages" => array (
             array (
                 "type" => "text",
