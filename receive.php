@@ -10,7 +10,7 @@
     $sender_txt = $json_obj->events[0]->message->text; //取得訊息內容
     $sender_replyToken = $json_obj->events[0]->replyToken; //取得訊息的replyToken
   
-    $response = array (
+    /*$response = array (
         //"to" => "Ud91c4d2039ede38a258409f1d06164e5",//$sender_userid,
         "replyToken" => $sender_replyToken,
         "messages" => array (
@@ -52,7 +52,169 @@
                                   )
                 )
         )
-    );
+    );*/
+
+$msg_json = '{
+                "type": "bubble",
+                "hero": {
+                  "type": "image",
+                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                  "size": "full",
+                  "aspectRatio": "20:13",
+                  "aspectMode": "cover",
+                  "action": {
+                    "type": "uri",
+                    "label": "Line",
+                    "uri": "https://linecorp.com/"
+                  }
+                },
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Brown Cafe",
+                      "size": "xl",
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "margin": "md",
+                      "contents": [
+                        {
+                          "type": "icon",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "icon",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "icon",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "icon",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "icon",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png",
+                          "size": "sm"
+                        },
+                        {
+                          "type": "text",
+                          "text": "4.0",
+                          "flex": 0,
+                          "margin": "md",
+                          "size": "sm",
+                          "color": "#999999"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "box",
+                      "layout": "vertical",
+                      "spacing": "sm",
+                      "margin": "lg",
+                      "contents": [
+                        {
+                          "type": "box",
+                          "layout": "baseline",
+                          "spacing": "sm",
+                          "contents": [
+                            {
+                              "type": "text",
+                              "text": "Place",
+                              "flex": 1,
+                              "size": "sm",
+                              "color": "#AAAAAA"
+                            },
+                            {
+                              "type": "text",
+                              "text": "Here , 前鎮區, Kaohsiung, TW",
+                              "flex": 5,
+                              "size": "sm",
+                              "color": "#0C29C8",
+                              "wrap": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "box",
+                          "layout": "baseline",
+                          "spacing": "sm",
+                          "contents": [
+                            {
+                              "type": "text",
+                              "text": "Time",
+                              "flex": 1,
+                              "size": "sm",
+                              "color": "#AAAAAA"
+                            },
+                            {
+                              "type": "text",
+                              "text": "10:00 - 22:00",
+                              "flex": 5,
+                              "size": "sm",
+                              "color": "#E83B3B",
+                              "wrap": true
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "footer": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "flex": 0,
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "uri",
+                        "label": "CALL",
+                        "uri": "https://linecorp.com"
+                      },
+                      "height": "sm",
+                      "style": "link"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "uri",
+                        "label": "WEBSITE",
+                        "uri": "https://linecorp.com"
+                      },
+                      "height": "sm",
+                      "style": "link"
+                    },
+                    {
+                      "type": "spacer",
+                      "size": "sm"
+                    }
+                  ]
+                }
+              }';
+  	$response = array (
+		"replyToken" => $sender_replyToken,
+		"messages" => array (
+			array (
+				"type" => "flex",
+				"altText" => "This is a Flex Message",
+				"contents" => json_decode($msg_json)
+			)
+		)
+  	);
   
     fwrite($myfile, "\xEF\xBB\xBF".json_encode($response)); //在字串前面加上\xEF\xBB\xBF轉成utf8格式
     $header[] = "Content-Type: application/json";
