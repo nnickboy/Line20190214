@@ -8,14 +8,49 @@
 
     $sender_userid = $json_obj->events[0]->source->userId; //取得訊息發送者的id
     $sender_txt = $json_obj->events[0]->message->text; //取得訊息內容
+    $sender_replyToken = $json_obj->events[0]->replyToken; //取得訊息的replyToken
   
     $response = array (
-        "to" => "Ud91c4d2039ede38a258409f1d06164e5",//$sender_userid,
+        //"to" => "Ud91c4d2039ede38a258409f1d06164e5",//$sender_userid,
+        "replyToken" => $sender_replyToken,
         "messages" => array (
             array (
                 "type" => "text",
                 "text" => "Hello. You say". $sender_txt
-            )
+            ),
+            array (
+                "type" => "template",
+                "altText" => "this is a buttons template",
+                "template" => array (
+                                  "type" => "buttons",
+                                  "thumbnailImageUrl" => "https://www.w3schools.com/css/paris.jpg",
+                                  "title" => "Menu",
+                                  "text" => "Please select",
+                                  "actions" => array (
+                                                  array (
+                                                    "type" => "postback",
+                                                    "label" => "買四季春",
+                                                    //"data" => "action=buy&itemid=123"
+                                                    "text" => "buy",
+                                                    "data" => "buy=買四季春"
+                                                  ),
+                                                  array (
+                                                    "type" => "message",
+                                                    "label" => "買綠茶",
+                                                    "text" => "This is text"
+                                                  ),
+                                                  array (
+                                                    "type" => "datetimepicker",
+                                                    "label" => "Select date",
+                                                    "data" => "storeId=12345",
+                                                    "mode" => "datetime",
+                                                    "initial" => "2017-12-25t00:00",
+                                                    "max" => "2018-01-24t23:59",
+                                                    "min" => "2017-12-25t00:00"
+                                                  )
+                                            )
+                                  )
+                )
         )
     );
   
