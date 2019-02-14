@@ -9,7 +9,54 @@
     $sender_userid = $json_obj->events[0]->source->userId; //取得訊息發送者的id
     $sender_txt = $json_obj->events[0]->message->text; //取得訊息內容
     $sender_replyToken = $json_obj->events[0]->replyToken; //取得訊息的replyToken
-  
+ 
+	$response = array (
+		"replyToken" => $sender_replyToken,
+		"messages" => array (
+			array (
+				"type" => "text",
+				"text" => "請試用quick replies功能",
+				"quickReply" => array (
+					"items" => array (
+						array (
+							"type" => "action",
+							"imageUrl" => "https://sporzfy.com/chtuser1/apple.png",
+							"action" => array (
+								"type" => "message",
+								"label"=> "Apple",
+								"text" => "這是一個Apple"
+							)
+						),
+						array (
+                            "type" => "action",
+                            "imageUrl" => "https://sporzfy.com/chtuser1/placeholder.png",
+                            "action" => array (
+                                "type" => "location",
+                                "label"=> "請選擇位置"
+                            )
+                        ),
+                        array (
+                            "type" => "action",
+                            "imageUrl" => "https://sporzfy.com/chtuser1/camera.png",
+                            "action" => array (
+                                "type" => "camera",
+                                "label"=> "啟動相機"
+                            )
+                        ),
+                        array (
+                            "type" => "action",
+                            "imageUrl" => "https://sporzfy.com/chtuser1/picture.png",
+                            "action" => array (
+                                "type" => "cameraRoll",
+                                "label"=> "啟動相簿"
+                            )
+						)
+					)
+				)	
+			)
+		)
+	);
+
     /*$response = array (
         //"to" => "Ud91c4d2039ede38a258409f1d06164e5",//$sender_userid,
         "replyToken" => $sender_replyToken,
@@ -53,7 +100,7 @@
                 )
         )
     );*/
-
+/*
 $msg_json = '{
                 "type": "bubble",
                 "hero": {
@@ -215,7 +262,7 @@ $msg_json = '{
 			)
 		)
   	);
-  
+  */
     fwrite($myfile, "\xEF\xBB\xBF".json_encode($response)); //在字串前面加上\xEF\xBB\xBF轉成utf8格式
     $header[] = "Content-Type: application/json";
     $header[] = "Authorization: Bearer fYSTcNaZ/hxGDOrKXK/dclPnVzHGIctM9jHPoSiW8oDXqI2nr7GnjmLE5ts43Er2QI/xjJl68eiYPG7WG243f0q2GCA8+9G0IzHRG9IpCH5uACf5vMJ2TQ4KOUJhnsgTHEBJRKW1rIaFYI2GpiznKQdB04t89/1O/w1cDnyilFU=";
