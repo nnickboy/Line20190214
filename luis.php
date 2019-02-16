@@ -16,9 +16,10 @@
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $result_str = curl_exec($ch);
 
-var_dump($result_str);exit;
-
     fwrite($myfile, "\xEF\xBB\xBF".$result_str); //在字串前加上\xEF\xBB\xBF轉成utf8格式
+
+var_dump("\xEF\xBB\xBF".$result_str);exit;
+
     $result = json_decode($result_str);
     $ans_txt = $result -> topScoringIntent -> intent;
     $response = array (
